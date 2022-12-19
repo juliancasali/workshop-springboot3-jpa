@@ -10,6 +10,7 @@ Basic entity checklist:
  Serializable
 */
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
@@ -31,6 +32,7 @@ public class User implements Serializable {
     private String password;
 
     // Associations (instantiate collections)
+    @JsonIgnore
     @OneToMany(mappedBy = "client")
     private List<Order> orders = new ArrayList<>();
 
