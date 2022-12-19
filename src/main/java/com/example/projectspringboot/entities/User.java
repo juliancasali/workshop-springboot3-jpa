@@ -13,12 +13,15 @@ Basic entity checklist:
 import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
 @Table(name = "tb_user")
 public class User implements Serializable {
 
+    // Basic attributes
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -27,8 +30,12 @@ public class User implements Serializable {
     private String phone;
     private String password;
 
-    public User(){
+    // Associations (instantiate collections)
+    @OneToMany(mappedBy = "client")
+    private List<Order> orders = new ArrayList<>();
 
+    // Construtores
+    public User(){
     }
 
     public User(Long id, String name, String email, String phone, String password) {
@@ -38,7 +45,7 @@ public class User implements Serializable {
         this.phone = phone;
         this.password = password;
     }
-
+    // Getters e setters
     public Long getId() {
         return id;
     }
@@ -79,6 +86,10 @@ public class User implements Serializable {
         this.password = password;
     }
 
+    public List<Order> getOrders() {
+        return orders;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -90,4 +101,6 @@ public class User implements Serializable {
     public int hashCode() {
         return Objects.hash(getId());
     }
+
+
 }
