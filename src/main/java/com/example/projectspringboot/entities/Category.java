@@ -2,13 +2,11 @@ package com.example.projectspringboot.entities;
 
 import jakarta.persistence.*;
 
-import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
-@Table(name = "tb_category")
-public class Category implements Serializable {
-
+@Table(name = "tb_product")
+public class Category {
     // Basic attributes
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
