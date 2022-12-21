@@ -20,7 +20,7 @@ public class Category implements Serializable {
     // Associations (instantiate collections)
     @JsonIgnore
     @ManyToMany(mappedBy = "categories")
-    private Set<Product> products = new HashSet<>();
+    private final Set<Product> products = new HashSet<>();
 
     // Construtores
     public Category() {
