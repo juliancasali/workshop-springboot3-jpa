@@ -7,12 +7,15 @@ import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
 @Table(name = "tb_ordem_item")
 public class OrderItem implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 1L;
 
     @EmbeddedId
     private  OrderItemPK id = new OrderItemPK();

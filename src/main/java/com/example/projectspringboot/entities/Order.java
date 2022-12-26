@@ -4,6 +4,7 @@ import com.example.projectspringboot.entities.enums.OrderStatus;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.time.Instant;
 import java.util.HashSet;
@@ -13,6 +14,8 @@ import java.util.Set;
 @Entity
 @Table(name = "tb_order")
 public class Order implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 1L;
 
     // Basic attributes
     @Id

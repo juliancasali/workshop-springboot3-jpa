@@ -3,6 +3,7 @@ package com.example.projectspringboot.entities;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Objects;
@@ -11,6 +12,8 @@ import java.util.Set;
 @Entity
 @Table(name = "tb_product")
 public class Product implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 1L;
 
     // Basic attributes
     @Id
